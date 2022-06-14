@@ -6,7 +6,7 @@
 #    By: seciurte <seciurte@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 17:07:59 by seciurte          #+#    #+#              #
-#    Updated: 2022/06/01 15:47:29 by seciurte         ###   ########.fr        #
+#    Updated: 2022/06/14 14:34:50 by seciurte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ SRCS	=	main.cpp
 
 INC		=	./
 
-NAME	=	span
+NAME	=	container
 
 OBJS	=	$(SRCS:.cpp=.o)
 
