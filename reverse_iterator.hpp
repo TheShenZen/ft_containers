@@ -20,7 +20,12 @@ namespace ft
 			typedef typename 		ft::iterator_traits<Iterator>::pointer					pointer;
 			typedef typename 		ft::iterator_traits<Iterator>::reference				reference;
 
-			reverse_iterator() {}; // Default constructor
+			reverse_iterator() : _current() {}; // Default constructor
+
+			explicit reverse_iterator(iterator_type x) : _current(x) {};
+
+			template<class U>
+			reverse_iterator(const reverse_iterator<U> &x) : _current(x._current) {}; 
 
 			template<class U>
 			reverse_iterator&		operator=(const reverse_iterator<U> &rhs)
@@ -77,10 +82,27 @@ namespace ft
 				return tmp;
 			};
 
-			reverse_iterator		operator+( difference_type n ) const;
-			reverse_iterator		operator-( difference_type n ) const;
-			reverse_iterator&		operator+=( difference_type n );
-			reverse_iterator&		operator-=( difference_type n );
+			reverse_iterator		operator+( difference_type n ) const
+			{
+				return reverse_iterator(this->_current - n);
+			};
+
+			reverse_iterator		operator-( difference_type n ) const
+			{
+				return reverse_iterator(this->_current + n);
+			};
+
+			reverse_iterator&		operator+=( difference_type n )
+			{
+				this->_current -= n;
+				return *this;
+			};
+
+			reverse_iterator&		operator-=( difference_type n )
+			{
+				this->_current += n;
+				return *this;
+			};
 
 			virtual ~reverse_iterator() {}; // Default destructor
 
