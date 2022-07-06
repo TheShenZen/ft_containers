@@ -8,9 +8,6 @@ namespace ft
 	template <typename Iterator>
 		class reverse_iterator
 	{
-		protected:
-			iterator_type			_current;
-
 		public:
 
 			typedef					Iterator												iterator_type;
@@ -51,24 +48,24 @@ namespace ft
 				return &(operator*());
 			};
 
-			/*unspecified*/			operator[](difference_type n) const
+			reference				operator[](difference_type n) const
 			{
 				return *(*this + n);
 			};
 
 			reverse_iterator&		operator++()
 			{
-				--current;
+				--(this->_current);
 				return *this;
 			};
 
 			reverse_iterator&		operator--()
 			{
-				++current;
+				++(this->_current);
 				return *this;
 			};
 
-			reverse_iterator		operator++( int );
+			reverse_iterator		operator++( int )
 			{
 				reverse_iterator	tmp;
 				operator++();
@@ -106,6 +103,8 @@ namespace ft
 
 			virtual ~reverse_iterator() {}; // Default destructor
 
+		protected:
+			iterator_type			_current;
 	};
 }
 
